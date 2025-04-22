@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@VY TEST (ʘ‿ʘ)╯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@VY (ʘ‿ʘ)╯</title>
   <style>
     body {
       background-color: #121212;
@@ -18,7 +18,6 @@
     }
     button {
       padding: 0.75rem 1.5rem;
-      font-size: 1rem;
       background-color: #03dac5;
       border: none;
       border-radius: 8px;
@@ -29,22 +28,66 @@
     button:hover {
       background-color: #00c3b1;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1f1f1f;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    input[type="password"] {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
-  <h1>TRA CAFE MENU DEMO</h1>
-  <p>Click the button below to view the menu</p>
-  <button onclick="checkPassword()">View Menu</button>
+  <h1>@VY (ʘ‿ʘ)╯</h1>
+  <button onclick="showModal()">View</button>
+
+  <div class="modal" id="passwordModal">
+    <div class="modal-content">
+      <p>Enter the password to access the page:</p>
+      <input type="password" id="passwordInput" placeholder="Password" />
+      <br />
+      <button onclick="verifyPassword()">Submit</button>
+    </div>
+  </div>
 
   <script>
-    function checkPassword() {
-      const correctPassword = "coffee123"; // Change this to your desired password
-      const userInput = prompt("Enter the password to view the menu:");
+    const correctPassword = "coffee123"; // Change this to your actual password
+    const modal = document.getElementById('passwordModal');
 
+    function showModal() {
+      modal.style.display = 'flex';
+    }
+
+    function verifyPassword() {
+      const userInput = document.getElementById('passwordInput').value;
       if (userInput === correctPassword) {
-        window.location.href = "https://vmy0x07c0.github.io/tra-demo/tkR7jUYd"; // Replace with your actual link
-      } else if (userInput !== null) {
-        alert("Incorrect password. Access denied.");
+        window.location.href = "https://vmy0x07c0.github.io/tra-demo/tkR7jUYd/"; // Your actual menu URL
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+
+    // Optional: Close modal on outside click
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
       }
     }
   </script>
